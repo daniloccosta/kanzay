@@ -75,9 +75,8 @@ def gravarNotasFiscais(xml):
             bd.gravarPedido(dt_emissao, 1, num_nota, 0, valor_desc, valor_nota)
             id_ped = bd.getIdPedido()
             if fpags != None:
-                bd.gravaFormaPagto(id_ped, fpags)
-            
-            bd.gravarItens(int(id_ped[0][0]), itens)
+                bd.gravarFormaPagto(id_ped, fpags)
+            bd.gravarItens(id_ped, itens)
             # listarProdutos() #atualizar lista de produtos
         except Exception as e:
             print("Error:", e)
